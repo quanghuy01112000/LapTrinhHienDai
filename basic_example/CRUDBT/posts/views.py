@@ -18,10 +18,10 @@ class ListPostView(ListView):
     def get(self, request, *args, **kwargs):
         template_name = 'posts/list-posts.html'  # sẽ được tạo ở phần dưới
         obj = {
+            "messages": "",
             'posts': Post.objects.all()
         }
         return render(request, template_name, obj)
-
 
 class CreatePostView(SuccessMessageMixin, CreateView):
     template_name = 'posts/create-post.html'
