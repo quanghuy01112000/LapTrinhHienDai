@@ -1,0 +1,22 @@
+<!-- posts/templates/posts/list-posts.html -->
+
+{% extends "layouts/layout.html" %}
+{% block title %}
+    List Post | {{ block.super }}
+{% endblock title %}
+{% block content %}
+  <h4><small>List Posts</small></h4>
+  <hr>
+  {% if posts %}
+    {% for post in posts %}
+    <h2>{{post.name}}</h2>
+    <h5><span class="glyphicon glyphicon-time"></span> Post at {{post.timestamp}}</h5>
+    <p>{{post.content}}</p>
+    <a href="{% url 'posts:update-post' post.id %}">Edit</a>
+    <a href="{% url 'posts:delete-post' post.id %}" onclick="return confirm('Are you sure you want to delete this post?');">Delete</a>
+    <br>
+    {% endfor %}
+  {% else %}
+    No post.
+  {% endif %}
+{% endblock content %}
