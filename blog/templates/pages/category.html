@@ -5,6 +5,8 @@
 {% load static %}
 
 {% block content %}
+
+
 <!-- Page Banner -->
 <div class="container-fluid no-padding page-banner">
     <!-- Container -->
@@ -29,89 +31,21 @@
         <!-- Row -->
         <div class="row">
             <!-- Post Box -->
+            {% for post in posts %}
             <div class="col-md-4 col-sm-6 col-xs-6 post-box">
                 <div class="type-post">
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post1.jpg' %}" alt="Sports" /></a></div>
+                    <div class="entry-cover"><a href="#"><img src="../media/{{ post.image }}" alt="Sports" /></a></div>
                     <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">midfielder Mason hoping loan days done</a></h3>
+                        <h3 class="entry-title"><a href="#">{{ post.name }}</a></h3>
                         <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
+                            <span>By : <a href="#">{{ post.author }}</a></span>
                             <span><a href="#">25 mins ago</a></span>
                             <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
                         </div>
                     </div>
                 </div>
             </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">Westfield FFA Cup wrap Round of 32 MD1</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post2.jpg' %}" alt="Sports" /></a></div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post3.jpg' %}" alt="Sports" /></a></div>
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">inesh D'Souza: The secret history of the city</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">Sydney Roosters Brisbane Broncos</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post4.jpg' %}" alt="Sports" /></a></div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post5.jpg' %}" alt="Sports" /></a></div>
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">Blacktown City striker Danny Choi scores 70m FFA Cup </a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">The Racist History of Portland, the Whitest City</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post6.jpg' %}" alt="Sports" /></a></div>
-                </div>
-            </div><!-- Post Box /- -->
+            {% endfor %}
         </div><!-- Row /- -->
         <!-- Pagination -->
         <nav class="ow-pagination">
