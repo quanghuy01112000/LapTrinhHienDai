@@ -585,7 +585,7 @@ footer.footer-section2 {
 
 /* + Page Header */
 .page-banner {
-	background-image: url("images/page-banner.jpg");
+	/* background-image: url("images/page-banner.jpg"); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 160px 0;

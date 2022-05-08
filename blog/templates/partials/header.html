@@ -54,34 +54,35 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav menu-open">
+
                         {% url 'index' as index_url %}
                         <li {% if request.get_full_path == index_url %}class="active" {% endif %}>
                             <a href="{% url 'index' %}" title="Home" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
                         </li>
 
-                        {% url 'category' slug='technology' as tech_url %}
-                        <li {% if request.get_full_path == tech_url %}class="active" {% endif %}>
-                            <a href="{% url 'category' slug='technology' %}" title="Technology">technology</a>
+                        {% url 'category' slug='cong-nghe' as cong_nghe_url %}
+                        <li {% if request.get_full_path == cong_nghe_url %}class="active" {% endif %}>
+                            <a href="{% url 'category' slug='cong-nghe' %}" title="Technology">Công nghệ</a>
                         </li>
 
-                        {% url 'category' slug='sports' as sports_url %}
-                        <li {% if request.get_full_path == sports_url %}class="active" {% endif %}>
-                            <a href="{% url 'category' slug='sports' %}" title="Sports">sports</a>
+                        {% url 'category' slug='xe-co' as xe_co_url %}
+                        <li {% if request.get_full_path == xe_co_url %}class="active" {% endif %}>
+                            <a href="{% url 'category' slug='xe-co' %}" title="Sports">Xe cộ</a>
                         </li>
 
-                        {% url 'category' slug='lifestyle' as lifestyle_url %}
-                        <li {% if request.get_full_path == lifestyle_url %}class="active" {% endif %}>
-                            <a href="{% url 'category' slug='lifestyle' %}" title="Lifestyle">lifestyle</a>
+                        {% url 'category' slug='the-thao' as the_thao_url %}
+                        <li {% if request.get_full_path == the_thao_url %}class="active" {% endif %}>
+                            <a href="{% url 'category' slug='the-thao' %}" title="Lifestyle">Thể thao</a>
                         </li>
 
-                        {% url 'category' slug='travel' as travel_url %}
-                        <li {% if request.get_full_path == travel_url %}class="active" {% endif %}>
-                            <a href="{% url 'category' slug='travel' %}" title="Travel">travel</a>
+                        {% url 'category' slug='du-lich' as du_lich_url %}
+                        <li {% if request.get_full_path == du_lich_url %}class="active" {% endif %}>
+                            <a href="{% url 'category' slug='du-lich' %}" title="Travel">Du lịch</a>
                         </li>
 
-                        {% url 'category' slug='entertaiment' as entertaiment_url %}
-                        <li {% if request.get_full_path == entertaiment_url %}class="active" {% endif %}>
-                            <a href="{% url 'category' slug='entertaiment' %}" title="entertainment">entertainment</a>
+                        {% url 'category' slug='giai-tri' as giai_tri_url %}
+                        <li {% if request.get_full_path == giai_tri_url %}class="active" {% endif %}>
+                            <a href="{% url 'category' slug='giai-tri' %}" title="entertainment">Giải trí</a>
                         </li>
 
                         {% url 'contact' as contact_url %}

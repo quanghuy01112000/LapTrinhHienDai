@@ -6,7 +6,7 @@
 
 {% block content %}
 <!-- Page Banner -->
-<div class="container-fluid no-padding page-banner">
+<div class="container-fluid no-padding page-banner" style="background-image: url('../../../static/images/category.jpg');">
     <!-- Container -->
     <div class="container">
         <h3>{{ slug|title }}</h3>
@@ -28,99 +28,46 @@
         </div><!-- Section Header /- -->
         <!-- Row -->
         <div class="row">
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post1.jpg' %}" alt="Sports" /></a></div>
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">midfielder Mason hoping loan days done</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
+            {% for post in posts %}
+                {% if forloop.counter0|divisibleby:2 %}
+                    <div class="col-md-4 col-sm-6 col-xs-6 post-box">
+                        <div class="type-post">
+                            <div class="entry-cover"><a href="{% url 'detail' post.slug %}"><img src="../../../media/{{post.image}}" style="width: 351px; height: 301px;" alt="Sports" /></a></div>
+                            <div class="entry-header">
+                                <h3 class="entry-title"><a href="{% url 'detail' post.slug %}">{{post.name}}</a></h3>
+                                <div class="post-meta">
+                                    <span>By : <a href="#">{{post.author}}</a></span>
+                                    <span><a href="#">{{post.published_on}}</a></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">Westfield FFA Cup wrap Round of 32 MD1</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
+                {% else %}
+                    <div class="col-md-4 col-sm-6 col-xs-6 post-box">
+                        <div class="type-post">
+                            <div class="entry-header">
+                                <h3 class="entry-title"><a href="{% url 'detail' post.slug %}">{{post.name}}</a></h3>
+                                <div class="post-meta">
+                                    <span>By : <a href="#">{{post.author}}</a></span>
+                                    <span><a href="#">{{post.published_on}}</a></span>
+                                </div>
+                            </div>
+                            <div class="entry-cover"><a href="{% url 'detail' post.slug %}"><img src="../../../media/{{post.image}}" style="width: 351px; height: 301px;" alt="Sports" /></a></div>
                         </div>
                     </div>
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post2.jpg' %}" alt="Sports" /></a></div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post3.jpg' %}" alt="Sports" /></a></div>
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">inesh D'Souza: The secret history of the city</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">Sydney Roosters Brisbane Broncos</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post4.jpg' %}" alt="Sports" /></a></div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post5.jpg' %}" alt="Sports" /></a></div>
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">Blacktown City striker Danny Choi scores 70m FFA Cup </a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Post Box /- -->
-            <!-- Post Box -->
-            <div class="col-md-4 col-sm-6 col-xs-6 post-box">
-                <div class="type-post">
-                    <div class="entry-header">
-                        <h3 class="entry-title"><a href="#">The Racist History of Portland, the Whitest City</a></h3>
-                        <div class="post-meta">
-                            <span>By : <a href="#">John Sina</a></span>
-                            <span><a href="#">25 mins ago</a></span>
-                            <span><a href="#"><i class="fa fa-commenting-o"></i> 25</a></span>
-                        </div>
-                    </div>
-                    <div class="entry-cover"><a href="#"><img src="{% static 'images/sport-post6.jpg' %}" alt="Sports" /></a></div>
-                </div>
-            </div><!-- Post Box /- -->
+                {% endif %}
+            {% endfor %}
         </div><!-- Row /- -->
         <!-- Pagination -->
         <nav class="ow-pagination">
             <ul class="pager">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">....</a></li>
-                <li><a href="#">5</a></li>
-                <li class="next"><a href="#">Next <i class="arrow_right"></i></a></li>
+                {% if posts.has_previous %}
+                    <li class="next"><a href="?page={{posts.previous_page_number}}"><i class="arrow_left"></i>Previous</a></li>
+                {% endif %}
+                    <li class="next"><a href="#">{{posts.number}} of {{posts.paginator.num_pages}}</a></li>
+                {% if posts.has_next %}
+                    <li class="next"><a href="?page={{posts.next_page_number}}">Next <i class="arrow_right"></i></a></li>
+                {% endif %}
             </ul>
         </nav><!-- Pagination /- -->
     </div><!-- Container /- -->

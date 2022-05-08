@@ -1,0 +1,95 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}{{ slug|title }} - Magazine{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- Page Banner -->
+<div class="container-fluid no-padding page-banner" style="background-image: url('../../../media/{{ post.image }}');">
+	<!-- Container -->
+	<div class="container">
+		<h3>DETAIL</h3>
+		<ol class="breadcrumb">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#">Detail</a></li>
+			<li class="active">{{ post.slug }}</li>
+		</ol>
+	</div><!-- Container /- -->
+</div><!-- Page Banner /- -->
+<!-- Container -->
+<div class="container">
+	<!-- Row -->
+	<div class="row blog-single">
+		<!-- Content Area -->
+		<div class="col-md-9 col-sm-8 content-area content_space">
+			<article class="type-post">
+				<div class="entry-cover">
+					<a href="{% url 'detail' post.slug %}"><img src="../../../media/{{ post.image }}" alt="Blog" /></a>
+				</div>
+				<div class="entry-header">
+					<h3 class="entry-title">{{ post.name }}</h3>
+					<div class="entry-meta">
+						<div class="post-date"><a href="#" title="May 22, 2016">{{ post.published_on }}</a></div>
+						<div class="byline">By : <a href="#" title="Simon">{{ post.author }}</a></div>
+						<!-- <div class="post-comment"><a href="#" title="07"><i class="fa fa-commenting-o"></i>07</a></div>
+						<div class="post-like"><a href="#" title="23"><i class="fa fa-eye"></i>23</a></div> -->
+					</div>
+				</div>
+				<div id="content" class="entry-content">
+					{{ post.content | safe }}
+				</div>
+
+				<div class="social-share">
+					<p>Share It</p>
+					<ul>
+						<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" title="twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" title="google"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
+					</ul>
+				</div>
+			</article>
+		</div><!-- Content Area /- -->
+
+		<!-- Widget Area -->
+		<div class="col-md-3 col-sm-4 widget-area widget_space">
+
+			<!-- Widget: Search -->
+			<aside class="widget widget_search">
+				<form method="get" class="searchform" action="#">
+					<div class="input-group">
+						<input name="s" placeholder="Search..," class="form-control" required="" type="text" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit"><i class="icon icon-Search"></i></button>
+						</span>
+					</div>
+				</form>
+			</aside><!-- Widget: Search /- -->
+
+			<!-- Widget: Categories -->
+			<aside class="widget widget_categories">
+				<h3 class="widget-title">Categories</h3>
+				<ul>
+					{% for category in categories %}
+						<li class="cat-item"><a href="{% url 'category' category.slug %}" title="{{ category.name }}">{{ category.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</aside><!-- Widget: Categories /- -->
+
+			<!-- Widget: Latest Posts -->
+			<aside class="widget widget_latestposts">
+				<h3 class="widget-title">Recent Posts</h3>
+				{% for latestpost in latestposts %}
+					<div class="latest-content">
+						<a href="{% url 'detail' latestpost.slug %}" title="Recent Posts"><i><img src="../../../media/{{ latestpost.image }}" style="width: 78px; height: 78;" class="wp-post-image" alt="blog-1"></i></a>
+						<h5><a title="The paradox of modern Vietnam" href="{% url 'detail' latestpost.slug %}">{{ latestpost.name }}</a></h5>
+						<span><a href="{% url 'detail' latestpost.slug %}">{{ latestpost.category }}</a> <a href="#">{{ latestpost.published_on }}</a></span>
+					</div>
+				{% endfor %}
+			</aside><!-- Widget: Latest Posts /- -->
+
+		</div><!-- Widget Area /- -->
+	</div><!-- Row /- -->
+</div><!-- Container /- -->
+{% endblock %}
