@@ -1,0 +1,75 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}{{ slug|title }} - Magazine{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- Page Banner -->
+<div class="container-fluid no-padding page-banner" style="background-image: url('../../../static/images/category.jpg');">
+    <!-- Container -->
+    <div class="container">
+        <h3>{{ slug|title }}</h3>
+        <ol class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="active">{{ slug|title }}</li>
+        </ol>
+    </div><!-- Container /- -->
+</div><!-- Page Banner /- -->
+
+<!-- Sports Post Block -->
+<div class="container-fluid no-padding sports-block">
+    <!-- Container -->
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header section-header2">
+            <h6>Read the</h6>
+            <h3>{{ slug|title }} Articles</h3>
+        </div><!-- Section Header /- -->
+        <!-- Row -->
+        <div class="row">
+            {% for post in posts %}
+                {% if forloop.counter0|divisibleby:2 %}
+                    <div class="col-md-4 col-sm-6 col-xs-6 post-box">
+                        <div class="type-post">
+                            <div class="entry-cover"><a href="{% url 'detail' post.slug %}"><img src="../../../media/{{post.image}}" style="width: 351px; height: 301px;" alt="Sports" /></a></div>
+                            <div class="entry-header">
+                                <h3 class="entry-title"><a href="{% url 'detail' post.slug %}">{{post.name}}</a></h3>
+                                <div class="post-meta">
+                                    <span>By : <a href="#">{{post.author}}</a></span>
+                                    <span><a href="#">{{post.published_on}}</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-md-4 col-sm-6 col-xs-6 post-box">
+                        <div class="type-post">
+                            <div class="entry-header">
+                                <h3 class="entry-title"><a href="{% url 'detail' post.slug %}">{{post.name}}</a></h3>
+                                <div class="post-meta">
+                                    <span>By : <a href="#">{{post.author}}</a></span>
+                                    <span><a href="#">{{post.published_on}}</a></span>
+                                </div>
+                            </div>
+                            <div class="entry-cover"><a href="{% url 'detail' post.slug %}"><img src="../../../media/{{post.image}}" style="width: 351px; height: 301px;" alt="Sports" /></a></div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div><!-- Row /- -->
+        <!-- Pagination -->
+        <nav class="ow-pagination">
+            <ul class="pager">
+                {% if posts.has_previous %}
+                    <li class="next"><a href="?page={{posts.previous_page_number}}"><i class="arrow_left"></i>Previous</a></li>
+                {% endif %}
+                    <li class="next"><a href="#">{{posts.number}} of {{posts.paginator.num_pages}}</a></li>
+                {% if posts.has_next %}
+                    <li class="next"><a href="?page={{posts.next_page_number}}">Next <i class="arrow_right"></i></a></li>
+                {% endif %}
+            </ul>
+        </nav><!-- Pagination /- -->
+    </div><!-- Container /- -->
+</div><!-- Sports Post Block /- -->
+{% endblock %}
