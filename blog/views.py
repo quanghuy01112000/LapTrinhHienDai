@@ -1,7 +1,6 @@
 from re import T
 from django.shortcuts import render
 from django.http import HttpResponse
-from pandas import Categorical
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from blog.models import Category, Post
