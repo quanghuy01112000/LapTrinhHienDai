@@ -22,7 +22,7 @@ from django.urls import re_path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("app/", include("blog.urls")),
+    path("", include("blog.urls")),
     path("__debug__/", include(debug_toolbar.urls)),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
